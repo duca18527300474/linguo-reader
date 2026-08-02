@@ -25,11 +25,6 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: 自动修复 Flutter Gradle 配置
-        run: |
-          cd linguo_reader || true
-          flutter create --platforms=android . --overwrite
-
       - name: 获取依赖
         run: |
           cd linguo_reader || true
