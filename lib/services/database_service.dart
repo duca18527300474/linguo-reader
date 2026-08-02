@@ -202,7 +202,7 @@ class DatabaseService {
   /// 检查单词是否已在生词本中
   Future<bool> hasVocabularyWord(String word) async {
     final d = await database;
-    final count = Sqflite.firstIntValue(
+    final count = firstIntValue(
       await d.rawQuery('SELECT COUNT(*) FROM vocabulary WHERE word = ?', [word]),
     );
     return (count ?? 0) > 0;
