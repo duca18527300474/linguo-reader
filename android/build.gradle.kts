@@ -1,5 +1,6 @@
 // Root build.gradle.kts — Kotlin DSL
-// Plugin versions are managed in settings.gradle.kts (pluginManagement block)
+// All plugin versions are declared in settings.gradle.kts (pluginManagement block)
+// No buildscript {} block needed here.
 
 allprojects {
     repositories {
