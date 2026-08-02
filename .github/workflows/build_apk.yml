@@ -25,6 +25,19 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: 自动修正 Android 工程配置并保留应用源码
+        run: |
+          cd linguo_reader || true
+          # 1. 备份真正的业务代码 lib 目录
+          cp -r lib lib_backup
+          
+          # 2. 重新生成干净正确的 Android 原生构建配置
+          flutter create --platforms=android . --overwrite
+          
+          # 3. 还原真正的业务代码（防止变成 demo 计数器）
+          rm -rf lib
+          cp -r lib_backup lib
+
       - name: 获取依赖
         run: |
           cd linguo_reader || true
